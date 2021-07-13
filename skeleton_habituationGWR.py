@@ -14,15 +14,15 @@ import matplotlib.pyplot as plt
 ###############################
 # Define input stimulation
 ###############################
-# TODO: Set a variable called stv to 4, this will define 
-#        the weight of the connection from input to output
-# stv = 
+# Set a variable called stv to 4, this will define 
+# the weight of the connection from input to output
+stv = 4
 
-# TODO: set up an input pulse called pls
-# pls = 
+# set up an input pulse called pls
+pls = [0, 0, 1, 0, 0]
 
-# TODO: then create a list of 6 pulses, called x, to use for input
-# x = 
+# then create a list of 6 pulses, called x, to use for input
+x = pls * 6
 
 v = stv # Set connection weight to start weight value
 
@@ -33,11 +33,13 @@ v = stv # Set connection weight to start weight value
 nTs = len(x) # find the length of the input list
 y = np.zeros((1,nTs)) # set up (define) a vector for the output time series
 
-# TODO: use a for-loop to iterate 
-#        through each time step in 
-#        the input series and calculate
-#        the output at each time step. Ex:
-# for ...
+# use a for-loop to iterate 
+# through each time step in 
+# the input series and calculate
+# the output at each time step. Ex:
+for t in range(0, nTs):
+    y[0, t] = v * x[t]
+    
 #     then indent 4 spaces and write the equation that
 #     describes how each input value in the vector x is 
 #     transformed to the output value in the vector y
@@ -66,8 +68,8 @@ def showresults(x,y,nTs,stv):
     
     plt.show()
 
-# TODO prepare file for Gradescope before committing and submitting!
+# prepare file for Gradescope before committing and submitting!
 # - Comment out the call to showresults below
 # - Comment out any print statements added during code development
 # - Make sure you keep x, y, pls, and other variable names the same
-showresults(x,y,nTs,stv)
+#showresults(x,y,nTs,stv)
